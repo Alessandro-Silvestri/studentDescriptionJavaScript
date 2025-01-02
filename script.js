@@ -30,7 +30,13 @@ class Student {
     }
 
     addScore(grade) {
-        this.score.push(grade);
+        if (grade >= 1 && grade <= 9) {
+            this.score.push(grade);
+        }
+    }
+
+    removeLastScore() {
+        this.score.pop();
     }
 
     clearScore() {
@@ -41,13 +47,29 @@ class Student {
         let sum = 0;
         this.score.forEach(grade => { sum += grade })
         let average = sum / this.score.length;
-        if (isNaN(average)){
+        if (isNaN(average)) {
             return 0;
         }
         return average.toFixed(2);
     }
 
-    getStudentInfo(){
+    percentConverter(grade) {
+        const percentages = {
+            1: 98,
+            2: 95,
+            3: 85,
+            4: 70,
+            5: 55,
+            6: 40,
+            7: 25,
+            8: 15,
+            9: 5,
+        }
+        grade = Math.floor(grade);
+        return `${percentages[grade]}%`;
+    }
+
+    getStudentInfo() {
         console.log(`First name: ${this.firstName}`);
         console.log(`Last name: ${this.lastName}`);
         console.log(`Address: ${this.address}`);
@@ -69,6 +91,12 @@ alex.country = "United Kingdom";
 alex.remoteLessons = true;
 alex.addScore(4);
 alex.addScore(5);
-alex.addScore(8);
-// alex.clearScore();
-console.log(alex.calculateAverage());
+alex.addScore(11);
+alex.addScore(5);
+alex.addScore(0);
+
+
+
+alex.getStudentInfo();
+console.log();
+alex.getStudentInfo();
