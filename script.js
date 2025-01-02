@@ -1,5 +1,5 @@
 /*
-Student description and score and calculator
+Student description and score average calculator
 
 CLASS:
     properties:
@@ -77,7 +77,7 @@ class Student {
         console.log(`Country: ${this.country}`);
         console.log(`RemoteLessons: ${this.remoteLessons}`);
         console.log(`Score: ${this.score}`);
-        console.log(`Average score: ${this.calculateAverage()}`);
+        console.log(`Average score: ${this.calculateAverage()} - ${this.percentConverter(this.calculateAverage())}`);
     }
 }
 
@@ -94,9 +94,11 @@ alex.addScore(5);
 alex.addScore(11);
 alex.addScore(5);
 alex.addScore(0);
+alex.addScore(1);
+alex.addScore(9);
+alex.addScore(9);
+alex.addScore(9);
 
 
 
-alex.getStudentInfo();
-console.log();
 alex.getStudentInfo();
