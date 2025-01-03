@@ -50,7 +50,7 @@ class Student {
         if (isNaN(average)) {
             return 0;
         }
-        return average.toFixed(2);
+        return `${average.toFixed(2)} - ${this.percentConverter(Math.floor(average))}`;
     }
 
     percentConverter(grade) {
@@ -81,24 +81,33 @@ class Student {
     }
 }
 
-let alex = new Student()
+let students = [];
 
-alex.firstName = "Alessandro";
-alex.lastName = "Silvestri";
-alex.address = "Huddersfield - 1 Western Road";
-alex.postcode = "HD45TH";
-alex.country = "United Kingdom";
-alex.remoteLessons = true;
-alex.addScore(4);
-alex.addScore(5);
-alex.addScore(11);
-alex.addScore(5);
-alex.addScore(0);
-alex.addScore(1);
-alex.addScore(9);
-alex.addScore(9);
-alex.addScore(9);
+// create DOM objects
+let nameInput = document.getElementById("nameInput");
+let lastNameInput = document.getElementById("lastNameInput");
+let addressInput = document.getElementById("addressInput");
+let postCodeInput = document.getElementById("postCodeInput");
+let countryInput = document.getElementById("countryInput");
+let remote1Input = document.getElementById("remote1Input");
+let gradesInput = document.getElementById("gradesInput");
+let buttonInput = document.getElementById("buttonInput");
 
+// button to add a student object to a list
+buttonInput.addEventListener("click", () => {
+    debugger;
+    let studentObj = new Student()
+    studentObj.firstName = nameInput.value;
+    studentObj.lastName = lastNameInput.value;
+    studentObj.address = addressInput.value;
+    studentObj.postcode = postCodeInput.value;
+    studentObj.country = countryInput.value;
+    studentObj.remoteLessons = remote1Input.checked;
 
+    for (let i = 1; i <= gradesInput.value; i++) {
+        let grade = +prompt(`Insert grade ${i} of ${gradesInput.value}`);
+        studentObj.addScore(grade);
+    }
 
-alex.getStudentInfo();
+    students.push(studentObj);
+})
