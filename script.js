@@ -69,17 +69,32 @@ class Student {
         return `${percentages[grade]}%`;
     }
 
+
+
+
+
     getStudentInfo() {
-        console.log(`First name: ${this.firstName}`);
-        console.log(`Last name: ${this.lastName}`);
-        console.log(`Address: ${this.address}`);
-        console.log(`Postcode: ${this.postcode}`);
-        console.log(`Country: ${this.country}`);
-        console.log(`RemoteLessons: ${this.remoteLessons}`);
-        console.log(`Score: ${this.score}`);
-        console.log(`Average score: ${this.calculateAverage()} - ${this.percentConverter(this.calculateAverage())}`);
+        let listOutput = [];
+        listOutput.push(`First name: ${this.firstName}`);
+        listOutput.push(`Last name: ${this.lastName}`);
+        listOutput.push(`Address: ${this.address}`);
+        listOutput.push(`Postcode: ${this.postcode}`);
+        listOutput.push(`Country: ${this.country}`);
+        listOutput.push(`Remote Lessons: ${this.remoteLessons}`);
+        listOutput.push(`score: ${this.score}`);
+        listOutput.push(`Average score: Average score: ${this.calculateAverage()} - ${this.percentConverter(this.calculateAverage())}`);
+        // console.log(`First name: ${this.firstName}`);
+        // console.log(`Last name: ${this.lastName}`);
+        // console.log(`Address: ${this.address}`);
+        // console.log(`Postcode: ${this.postcode}`);
+        // console.log(`Country: ${this.country}`);
+        // console.log(`RemoteLessons: ${this.remoteLessons}`);
+        // console.log(`Score: ${this.score}`);
+        // console.log(`Average score: ${this.calculateAverage()} - ${this.percentConverter(this.calculateAverage())}`);
+        return listOutput;
     }
 }
+
 
 let students = [];
 
@@ -94,7 +109,7 @@ let gradesInput = document.getElementById("gradesInput");
 let buttonInput = document.getElementById("buttonInput");
 let studentsAddedTextArea = document.getElementById("studentsAddedTextArea");
 let selectIdStudent = document.getElementById("selectIdStudent");
-let studentsInfoTextArea = document.getElementById("studentsInfoTextArea");
+let studentsInfoList = document.getElementById("studentsInfoTextArea");
 
 // button to create and add a student object to the 'students' list
 buttonInput.addEventListener("click", () => {
@@ -127,5 +142,22 @@ buttonInput.addEventListener("click", () => {
     newOption.text = `id: ${students.length - 1} - ${students[students.length - 1].firstName} ${students[students.length - 1].lastName}`;
     newOption.value = students.length - 1;
     selectIdStudent.appendChild(newOption);
-    console.log(selectIdStudent);
 })
+
+
+
+
+
+/////////     UNTIL HERE     ///////////////////////////////////////////////////////////////////////////
+// it works and the student details are printed in the console.
+// Create a loop through the list: 'studentInfoList' to add the details in to the list:
+// <ul id="studentsInfoList" class="list-group list-group-flush">
+
+// show the student details
+selectIdStudent.addEventListener("change", () => {
+    debugger;
+    let studentInfoList = students[selectIdStudent.value].getStudentInfo();
+    console.log(studentInfoList);
+    // console.log(students[selectIdStudent.value]);
+})
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
