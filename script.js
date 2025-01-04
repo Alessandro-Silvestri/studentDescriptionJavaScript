@@ -92,10 +92,10 @@ let countryInput = document.getElementById("countryInput");
 let remote1Input = document.getElementById("remote1Input");
 let gradesInput = document.getElementById("gradesInput");
 let buttonInput = document.getElementById("buttonInput");
+let studentsAddedTextArea = document.getElementById("studentsAddedTextArea");
 
-// button to add a student object to a list
+// button to create and add a student object to the 'students' list
 buttonInput.addEventListener("click", () => {
-    debugger;
     let studentObj = new Student()
     studentObj.firstName = nameInput.value;
     studentObj.lastName = lastNameInput.value;
@@ -110,4 +110,14 @@ buttonInput.addEventListener("click", () => {
     }
 
     students.push(studentObj);
+
+
+    // show the added student in the text area
+    let outputAddedStudent = "";
+    for (let i = 0; i < students.length; i++){
+        outputAddedStudent += `id ${i} : ${students[i].firstName} ${students[i].lastName}\n`    
+    }
+    debugger;
+    studentsAddedTextArea.value = outputAddedStudent
+
 })
