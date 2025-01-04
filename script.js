@@ -93,6 +93,8 @@ let remote1Input = document.getElementById("remote1Input");
 let gradesInput = document.getElementById("gradesInput");
 let buttonInput = document.getElementById("buttonInput");
 let studentsAddedTextArea = document.getElementById("studentsAddedTextArea");
+let selectIdStudent = document.getElementById("selectIdStudent");
+let studentsInfoTextArea = document.getElementById("studentsInfoTextArea");
 
 // button to create and add a student object to the 'students' list
 buttonInput.addEventListener("click", () => {
@@ -104,6 +106,7 @@ buttonInput.addEventListener("click", () => {
     studentObj.country = countryInput.value;
     studentObj.remoteLessons = remote1Input.checked;
 
+    // grades loop
     for (let i = 1; i <= gradesInput.value; i++) {
         let grade = +prompt(`Insert grade ${i} of ${gradesInput.value}`);
         studentObj.addScore(grade);
@@ -111,13 +114,18 @@ buttonInput.addEventListener("click", () => {
 
     students.push(studentObj);
 
-
-    // show the added student in the text area
+    // show the added student in the text area and in the select id student
     let outputAddedStudent = "";
-    for (let i = 0; i < students.length; i++){
-        outputAddedStudent += `id ${i} : ${students[i].firstName} ${students[i].lastName}\n`    
+
+    for (let i = 0; i < students.length; i++) {
+        outputAddedStudent += `id ${i} : ${students[i].firstName} ${students[i].lastName}\n`;
     }
-    debugger;
     studentsAddedTextArea.value = outputAddedStudent
 
+    // update the select tag for id student
+    let newOption = document.createElement("option");
+    newOption.text = `id: ${students.length - 1} - ${students[students.length - 1].firstName} ${students[students.length - 1].lastName}`;
+    newOption.value = students.length - 1;
+    selectIdStudent.appendChild(newOption);
+    console.log(selectIdStudent);
 })
