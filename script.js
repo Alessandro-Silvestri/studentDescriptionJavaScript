@@ -69,10 +69,6 @@ class Student {
         return `${percentages[grade]}%`;
     }
 
-
-
-
-
     getStudentInfo() {
         let listOutput = [];
         listOutput.push(`First name: ${this.firstName}`);
@@ -82,20 +78,12 @@ class Student {
         listOutput.push(`Country: ${this.country}`);
         listOutput.push(`Remote Lessons: ${this.remoteLessons}`);
         listOutput.push(`score: ${this.score}`);
-        listOutput.push(`Average score: Average score: ${this.calculateAverage()} - ${this.percentConverter(this.calculateAverage())}`);
-        // console.log(`First name: ${this.firstName}`);
-        // console.log(`Last name: ${this.lastName}`);
-        // console.log(`Address: ${this.address}`);
-        // console.log(`Postcode: ${this.postcode}`);
-        // console.log(`Country: ${this.country}`);
-        // console.log(`RemoteLessons: ${this.remoteLessons}`);
-        // console.log(`Score: ${this.score}`);
-        // console.log(`Average score: ${this.calculateAverage()} - ${this.percentConverter(this.calculateAverage())}`);
+        listOutput.push(`Average score: ${this.calculateAverage()}`);
         return listOutput;
     }
 }
 
-
+// create all the list for containing all the Student objects
 let students = [];
 
 // create DOM objects
@@ -109,7 +97,7 @@ let gradesInput = document.getElementById("gradesInput");
 let buttonInput = document.getElementById("buttonInput");
 let studentsAddedTextArea = document.getElementById("studentsAddedTextArea");
 let selectIdStudent = document.getElementById("selectIdStudent");
-let studentsInfoList = document.getElementById("studentsInfoTextArea");
+let studentsInfoList = document.getElementById("studentsInfoList");
 
 // button to create and add a student object to the 'students' list
 buttonInput.addEventListener("click", () => {
@@ -144,20 +132,20 @@ buttonInput.addEventListener("click", () => {
     selectIdStudent.appendChild(newOption);
 })
 
-
-
-
-
-/////////     UNTIL HERE     ///////////////////////////////////////////////////////////////////////////
-// it works and the student details are printed in the console.
-// Create a loop through the list: 'studentInfoList' to add the details in to the list:
-// <ul id="studentsInfoList" class="list-group list-group-flush">
-
 // show the student details
 selectIdStudent.addEventListener("change", () => {
     debugger;
-    let studentInfoList = students[selectIdStudent.value].getStudentInfo();
-    console.log(studentInfoList);
-    // console.log(students[selectIdStudent.value]);
+    // delete all the 'li' tags if present
+    while (studentsInfoList.firstChild){
+        studentsInfoList.removeChild(studentsInfoList.firstChild);
+    }
+
+    let InfoList = students[selectIdStudent.value].getStudentInfo();
+    for (let dataLine of InfoList){
+        let liItem = document.createElement("li");
+        liItem.className = "list-group-item";
+        liItem.textContent = dataLine;
+        studentsInfoList.appendChild(liItem);
+        console.log(studentsInfoList);
+    }
 })
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
