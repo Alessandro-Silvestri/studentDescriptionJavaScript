@@ -1,21 +1,6 @@
 /*
 Student description and score average calculator
-
-CLASS:
-    properties:
-        name
-        surname
-        address
-        postcode
-        country
-        remote lesson (boolean)
-        score [5, 6, 7, 8, 9]
-    methods:
-        add score
-        remove score
-        clear score
-        retrieve information
-        calculate average
+Author: Alessandro Silvestri - 2025 <alessandro.silvestri.work@gmail.com>
 */
 
 class Student {
@@ -134,7 +119,6 @@ buttonInput.addEventListener("click", () => {
 
 // show the student details
 selectIdStudent.addEventListener("change", () => {
-    debugger;
     // delete all the 'li' tags if present
     while (studentsInfoList.firstChild){
         studentsInfoList.removeChild(studentsInfoList.firstChild);

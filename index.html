@@ -1,3 +1,8 @@
+<!-- 
+Student description and score average calculator
+Author: Alessandro Silvestri - 2025 <alessandro.silvestri.work@gmail.com> 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,8 +16,15 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="bg">
+
+  <body>
     <div class="mt-3m container pt-5">
+      <h1 class="mb-4">
+        Student description and score average calculator
+      </h1>
+      <p class="mb-4">
+        Author: Alessandro Silvestri
+      </p>
       <label for="nameInput" class="form-label">Name</label>
       <input
         type="text"
@@ -76,7 +88,11 @@
         >I don't attend online lessons</label
       >
 
-      <select id="gradesInput" class="form-select mt-4" aria-label="Default select example">
+      <select
+        id="gradesInput"
+        class="form-select mt-4"
+        aria-label="Default select example"
+      >
         <option selected>Choose how many grades you want to add</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -85,36 +101,25 @@
         <option value="5">5</option>
       </select>
 
-      <button id="buttonInput" type="button" class="btn btn-primary mt-4 btn-lg">
+      <button
+        id="buttonInput"
+        type="button"
+        class="btn btn-primary mt-4 btn-lg"
+      >
         Insert student
       </button>
 
-      <textarea rows="5" class="form-control mt-4" id="studentsAddedTextArea"></textarea>
+      <textarea
+        rows="5"
+        class="form-control mt-4"
+        id="studentsAddedTextArea"
+      ></textarea>
       <label for="studentsAddedTextArea">Students Added</label>
-
-
-      <script>
-        
-      </script>
       <select id="selectIdStudent" class="form-select form-select-sm mt-3 mb-3">
         <option selected>Select the student Id</option>
       </select>
 
-
-
-
-      <ul id="studentsInfoList" class="list-group list-group-flush">
-        
-        
-        <!-- <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li> -->
-      </ul>
-
-
-
+      <ul id="studentsInfoList" class="list-group list-group-flush"></ul>
     </div>
 
     <script
